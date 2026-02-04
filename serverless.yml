@@ -27,7 +27,13 @@ functions:                          		# Sekcija koja definiše Lambda funkcije
       - http:                       		# API Gateway HTTP endpoint
           path: sync                		# Putanja: /sync
           method: get               		# HTTP metoda: GET
-
+  getChargers:
+    handler: getChargers.handler
+    description: Get EV chargers by town (GSI TownIndex)
+    events:
+      - http:
+          path: chargers/{town}
+          method: get
 resources:                          		# CloudFormation resursi sekcija
   Resources:                        		# AWS resursi za kreiranje
     ChargersTable:                  		# Logičko ime resursa 
